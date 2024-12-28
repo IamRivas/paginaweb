@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>Systecon | Login</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="LOGOS/LOGODEGRADADO.png">
+</head>
+<body>
+  <div class="login-fondo">
+
+    <div class="logo-container">
+      <img src="LOGOS/LOGOEMPRESAWHITE.png" alt="Logo" class="logo">
+      <span class="logo-text">Systecon</span>
+    </div>
+    <img src="LOGOS/LOGOEMPRESAWHITE.png" alt="Logo" class="logo">
+
+     <h2>Login</h2>
+    <div class="datos-ingresados">
+      <img src="ICONOS\USER.png" alt="logo" class="icon"> 
+      <input type="text" id="username" placeholder="User" required>
+    </div>
+    <div class="datos-ingresados">
+      <img src="ICONOS\PASSWORD.png" alt="logo" class="icon">
+      <input type="password" id="password" placeholder="Password" required>
+    </div>
+    <button onclick="login()" class="LoginBoton">LOGIN</button>
+    <div id="error-message" class="error-message">Credenciales incorrectas. Nombre de usuario o contraseña no válidos.</div>
+
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

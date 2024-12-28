@@ -1,0 +1,127 @@
+﻿<html>
+<head>
+  <title>Systecon | Dashboard</title>
+  <link rel="stylesheet" href="./stylesdashboard.css">
+  <link rel="icon" type="image/png" href="LOGOS/LOGODEGRADADO.png">
+</head>
+<body>
+  <div class="banner">
+    <img src="DASHBOARDSYSTECON\Systeconformal.png" class="BannerDashboard">
+  </div>
+
+  <!-- Contenedor principal -->
+  <div class="dashboard-container">
+    <!-- Panel izquierdo -->
+    <div class="left-panel">
+      <div class="toggle-button" onclick="togglePanel()">
+        <span>☰</span>
+      </div>
+
+      <!-- Información del usuario -->
+      <div class="user-fondo">
+        <!-- Botón para abrir el menú -->
+        <button id="menuButton" class="button_logout">Menú</button>
+
+        <!-- Menú desplegable -->
+        <div id="dropdown" class="dropdown hidden">
+          <button id="logout-btn" class="button logout">Cerrar sesión</button>
+        </div>
+
+        <div class="user-info">
+          <img src="Dashboardicon/person-working.png" class="users-img" alt="usuarioimagenlogo">
+          <p id="user-name" class="usuario-nombre">Cargando usuario...</p>
+          <p id="user-email" class="usuario-correo">Cargando correo...</p>
+        </div>
+      </div>
+
+      <!-- Menú de navegación -->
+      <div class="navigation-menu">
+        <h3>Navegación Principal</h3>
+        <ul>
+          <li>
+            <img src="Dashboardicon/dashboardicon.png" alt="dashboard" class="dashboard-icon">
+            <a href="./dashboard.html">ㅤDashboard</a>
+          </li>
+          <li>
+            <img src="Dashboardicon/GestióndeProductos.png" alt="dashboard" class="dashboard-icon">
+            <a href="./productos.html">ㅤGestión de Productos</a>
+          </li>
+          <li>
+            <img src="Dashboardicon/reportes.png" alt="dashboard" class="dashboard-icon">
+            <a href="./reportes.html">ㅤReportes</a>
+          </li>
+          <li>
+            <img src="Dashboardicon/Configuración.png" alt="dashboard" class="dashboard-icon">
+            <a href="./settings.html">ㅤConfiguración</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Datos que aparecerán en excel -->
+    <div class="content-area">
+      <p>Dashboard</p>
+      <div class="dashboard-grid">
+        <div class="dashboard-card clientes">
+          <p>Clientes</p>
+          <h2 id="clientes-count">0</h2>
+        </div>
+        <div class="dashboard-card proveedores">
+          <p>Proveedores</p>
+          <h2 id="proveedores-count">0</h2>
+        </div>
+        <div class="dashboard-card productos">
+          <p>Productos</p>
+          <h2 id="productos-count">0</h2>
+        </div>
+        <div class="dashboard-card facturas">
+          <p>Facturas</p>
+          <h2 id="facturas-count">0</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Recuperar el usuario que inició sesión
+    const loggedInUser = localStorage.getItem("loggedInUser");
+
+    if (loggedInUser) {
+      const userNameElement = document.getElementById("user-name");
+      const userEmailElement = document.getElementById("user-email");
+
+      userNameElement.textContent = loggedInUser.split("@")[0]; // Mostrar parte del correo como nombre
+      userEmailElement.textContent = loggedInUser; // Mostrar correo
+    } else {
+      // Redirigir al login si no hay usuario
+      window.location.href = "./index.html";
+    }
+
+    // Función para contraer/expandir el panel
+    function togglePanel() {
+      const leftPanel = document.querySelector('.left-panel');
+      const contentArea = document.querySelector('.content-area');
+
+      leftPanel.classList.toggle('collapsed');
+      contentArea.classList.toggle('expanded');
+    }
+
+    // Seleccionamos el botón y el menú
+    const menuButton = document.getElementById('menuButton');
+    const dropdown = document.getElementById('dropdown');
+
+    // Evento para mostrar/ocultar el menú
+    menuButton.addEventListener('click', () => {
+      dropdown.classList.toggle('hidden'); // Alterna la visibilidad
+    });
+
+    // Botón de cerrar sesión
+    const logoutButton = document.getElementById('logout-btn');
+    logoutButton.addEventListener('click', () => {
+      localStorage.removeItem('loggedInUser'); // Limpia el usuario
+      window.location.href = "./index.html"; // Redirige al login
+    });
+  </script>
+</body>
+</html>

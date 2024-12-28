@@ -1,0 +1,316 @@
+﻿/* Banner */
+.banner {
+  background-color: #006f71;
+  color: white;
+  text-align: left;
+  padding: 0.01%;
+  height: 75px;
+}
+.BannerDashboard{
+  width: 190px;
+  transform: translate(7%, 25%);
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.header {
+  background-color: blue; /* Color de tu barra */
+  width: 100%;
+  height: 60px; /* Ajusta la altura según lo que necesites */
+  position: fixed ; /* Para que se mantenga fija si haces scroll */
+  top: 0;
+  left: 0;
+}
+
+/* Contenedor principal */
+.dashboard-container {
+  display: flex;
+  padding: 0px;
+  margin: 0; /* Asegurarse de que no haya márgenes */
+  height: calc(100vh - 60px); /* Ajustar altura para ocupar toda la ventana menos el banner */
+  overflow: hidden; /* Evitar que el contenido se desborde */
+}
+
+/* Panel izquierdo */
+.left-panel {
+  width: 25%; /* Ancho fijo para escritorio */
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* Sin espacio entre elementos */
+  float: left;
+  margin: 0; /* Quitar margen */
+  padding: 0; /* Quitar padding extra */
+}
+
+/* Información del usuario */
+.user-info {
+  position: relative; /* Evita desplazamientos inesperados */
+  z-index: 10; /* Mantiene la información en primer plano */
+  text-align: center;
+  pointer-events: none; /* Evita que el zoom afecte al contenido */
+}
+
+.user-info p {
+  margin: 10px 0;
+}
+
+.user-info button:hover {
+  background-color: #ff3333;
+}
+
+.users-img {
+  height: 80px;
+  width: 80px;
+  top: 50%;
+  left: 50%;
+}
+.logoutbtn {
+  transform: translate(100%, -12%);
+}
+
+
+.user-fondo {
+  background-color: #dbe7e5; /* Color de fondo */
+  width: 100%;
+  height: auto;
+  position: relative;
+  transform-origin: center center; /* Mantiene el zoom centrado en el contenedor */
+  overflow: hidden; /* Evita que los elementos internos se muevan fuera de su contenedor */
+  transition: transform 0.2s ease-in-out; /* Transición suave */
+  overflow: visible;
+  pointer-events: auto;
+}
+
+.dashboard-icon {
+  height: 15px;
+  text-align: left;
+}
+
+/* Menú de navegación */
+.navigation-menu {
+  background-color: #f5f5f5;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation-menu h3 {
+  margin: 0 0 10px;
+}
+
+.navigation-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navigation-menu li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.navigation-menu li a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.navigation-menu li a:hover {
+  color: #007bff;
+}
+
+.usuario-nombre { 
+  transform: translate(-2%, 25%); /* Nombre */
+}
+.usuario-correo {
+  transform: translate(-2%, 25%); 
+}
+
+
+/* Espacio vacío */
+.content-area {
+  flex-grow: 2;
+  background-color: white;
+  border: 1px  #000;
+  border-radius: 5px;
+  padding: 20px;
+  overflow-y: auto; /* Agregar scroll si el contenido excede el área */
+  transform: translate(-10, -1%);
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  /* Contenedor principal en diseño vertical */
+  .dashboard-container {
+      flex-direction: column; /* Cambia de horizontal a vertical */
+      gap: 10px;
+      padding: 10px;
+  }
+
+  /* Panel izquierdo ocupa todo el ancho */
+  .left-panel {
+      width: 50%; /* Panel ocupa todo el ancho */
+      
+  }
+
+  /* Imagen de usuario más pequeña y centrada */
+  .users-img {
+      height: 50px; /* Tamaño reducido */
+      width: auto;
+      margin: 0 auto; /* Centrado */
+      transform: none;
+  }
+
+  /* Espacio vacío ocupa todo el ancho */
+  .content-area {
+      width: 100%;
+      padding: 10px;
+  }
+
+  /* Elementos del menú centrados */
+  .navigation-menu ul {
+      padding: 0;
+  }
+
+  .navigation-menu li {
+      text-align: center; /* Centrar los elementos del menú */
+      padding: 10px 0;
+  }
+
+  .navigation-menu li a {
+      font-size: 14px; /* Tamaño de texto reducido */
+  }
+
+  /* Banner más compacto */
+
+}
+/* Botón de toggle */
+.toggle-button {
+  position: left;
+  
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+ 
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.toggle-button span {
+  font-size: 18px;
+}
+
+
+.left-panel {
+  width: 25%; /* Anchura de datos de navegacion y quien entro a la pagina */
+  transition: width 0.3s;
+  overflow: hidden;
+  height: auto;
+}
+
+.left-panel.collapsed {
+  width: 35px; 
+}
+
+.left-panel.collapsed .user-info,
+.left-panel.collapsed .navigation-menu h3,
+.left-panel.collapsed .navigation-menu ul li a {
+  display: none;
+}
+
+.left-panel.collapsed .dashboard-icon {
+  margin: 0 auto;
+  display: block;
+}
+
+/* Área de contenido dinámico */
+.content-area {
+  flex-grow: 1px;
+  background: linear-gradient(to bottom, #f5f5f5, #cccccc, #adadad);
+
+
+.content-area.expanded {
+  margin-left: 50px; /* Margen ajustado para panel contraído */
+}
+/* TODO ESTO ESTARA DENTRO DEL DASHBOARD*/
+.dashboard-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.dashboard-card {
+  width: 200px;
+  height: 120px;
+  border-radius: 10px;
+  padding: 15px;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-card p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.dashboard-card h2 {
+  margin: 10px 0 0;
+  font-size: 30px;
+}
+
+/* Colores específicos */
+.clientes { background-color: #009688; }
+.proveedores { background-color: #FF9800; }
+.productos { background-color: #673AB7; }
+.facturas { background-color: #607D8B; }
+}
+/*BOTOOOOOOOOOOOOOOOON*/
+/* Contenedor del menú - sin moverlo */
+.menu-container {
+  position: relative; /* Necesario para posicionar el menú debajo del botón */
+}
+
+/* Estilo del botón */
+.button_logout {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  transform: translate(355%, 380%); /* Posiciona el botón en el lugar deseado */
+  position: absolute; /* Necesario para que el transform funcione */
+}
+
+.button_logout:hover {
+  background-color: #0056b3;
+}
+
+/* Menú desplegable */
+.dropdown {
+  position: absolute;
+  top: 100%; /* Coloca el menú justo debajo del botón */
+  left: 0; /* Alinea el menú con el borde izquierdo del botón */
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 1000;
+  opacity: 0; /* Inicialmente oculto */
+  pointer-events: none; /* Sin interacción inicialmente */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Menú visible (cuando se elimina la clase 'hidden') */
+.dropdown:not(.hidden) {
+  opacity: 1; /* Hace visible el menú */
+  pointer-events: auto; /* Permite interactuar con el menú */
+}

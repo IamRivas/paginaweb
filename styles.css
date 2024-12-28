@@ -1,0 +1,128 @@
+body { 
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url("https://i.pinimg.com/originals/6b/b6/5b/6bb65b184f4b26a7897cd989d42d3811.gif"); /* Imagen de fondo */
+  background-size: cover; /* La imagen cubre todo el espacio */
+}
+
+.login-fondo {
+  background: rgba(15, 15, 15, 0.89); /* Fondo blanco transparente */
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+}
+
+h2 {
+  color: white;
+}
+
+.datos-ingresados {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  background: rgba(255, 255, 255, 0.1); /* Fondo transparente */
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Estilos para el mensaje de error */
+.error-message {
+  display: none; /* Oculto por defecto */
+  background-color: #ffcccc;
+  color: #a94442;
+  border: 1px solid #a94442;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+  animation: slideIn 0.5s forwards, fadeOut 0.5s forwards 5s; /* Animación de entrada y salida */
+}
+
+.error-message {
+  display: none; /* Oculta el mensaje de error inicialmente */
+  color: red;
+  background-color: #ffe6e6;
+  border: 1px solid red;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 5px;
+  animation: slide-in 0.5s ease-out; /* Animación para que aparezca de abajo hacia arriba */
+}
+
+@keyframes slide-in {
+  from {
+      transform: translateY(20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+
+
+.icon {
+  width: 20px; /*Medidas para el logo*/
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* Contenedor para centrar la imagen y el texto en una fila */
+.logo-container {
+  display: flex;
+  align-items: center; /* Alinea verticalmente en el centro */
+  position: absolute; /* Posiciona el contenedor en una esquina */
+  top: 20px; /* Ajusta según el espacio que necesites */
+  left: 20px; /* Ajusta según el espacio que necesites */
+}
+
+/* Estilos para la imagen */
+.logo {
+  width: 30px; /* Cambia el tamaño según necesites */
+  height: auto;
+  margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+/* Estilos para el texto */
+.logo-text {
+  color: #ffffff; /* Color del texto */
+  font-size: 18px; /* Tamaño del texto */
+  font-weight: bold;
+  font:150% Georgia;
+}
+
+input {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #3675fc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #6178fa; 
+}
+h3 {
+  text-align: left;
+}
+button{
+  width: 60%; 
+}
