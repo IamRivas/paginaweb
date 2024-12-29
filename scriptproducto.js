@@ -1,4 +1,4 @@
-const GITHUB_TOKEN = "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"; // Sustituir por tu PAT
+
 const GITHUB_OWNER = "IamRivas"; // Sustituir por tu usuario de GitHub
 const GITHUB_REPO = "fjaphlshgownj"; // Sustituir por tu repositorio
 const BRANCH = "main"; // Sustituir si usas otra rama
